@@ -5,8 +5,8 @@
       focus:shadow-[0px_1px_0_0_#004E71]" v-model="searchQuery" @input="searchQueryResult"
       />
       <ul class="absolute bg-weather-primary w-full shadow-md py-2 px-1 top-[66px] text-white" v-if="mapBoxSearchResult">
-          <p class="py-2" v-if="searchError">Sorry, something went wrong, please try again.</p>
-          <p class="py-2" v-if="!serverError && mapBoxSearchResult.length == 0">No results match your query, try a different term.</p>
+          <p class="max-md:text-sm md:text-base py-2" v-if="searchError">Sorry, something went wrong, please try again.</p>
+          <p class="max-md:text-sm md:text-base py-2" v-if="!serverError && mapBoxSearchResult.length == 0">No results match your query, try a different term.</p>
         <template v-else>
           <li class="py-2 cursor-pointer" v-for="searchResult in mapBoxSearchResult" :key="searchResult.id" @click="previewCity(searchResult)">
             {{ searchResult.properties.full_address }}

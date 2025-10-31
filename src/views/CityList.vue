@@ -6,7 +6,7 @@
   </div>
   </div>
   <div v-else-if="savedCities.length == 0">
-    <p>No locations added. To Start tracking a location, search in the field above.</p>
+    <p class="max-md:text-sm md:text-base">No locations added. To Start tracking a location, search in the field above.</p>
   </div>
   <div v-else>
     <CityCardSkeleton />

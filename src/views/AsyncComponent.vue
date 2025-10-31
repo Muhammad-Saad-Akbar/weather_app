@@ -1,14 +1,14 @@
 <template>
     <div class="flex flex-col flex-1 items-center">
 <!--      Banner-->
-      <div v-if="route.query.preview" class="text-white p-4 bg-weather-secondary w-full text-center">
+      <div v-if="route.query.preview" class="max-md:text-sm md:text-base text-white p-4 bg-weather-secondary w-full text-center">
         <p>You are currently previewing this city, click the "+" icon to start tracking this city.</p>
       </div>
 
 <!--      Weather Overview-->
       <div v-if="cityWeatherData" class="flex flex-col items-center text-white py-12">
-        <h1 class="text-5xl mb-2">{{route.params.city}}</h1>
-        <p class="mb-12">
+        <h1 class="max-md:text-3xl md:text-5xl mb-2 tracking-wider">{{route.params.city}}</h1>
+        <p class="max-md:mb-8 md:mb-12 max-md:text-sm md:text-base tracking-wide">
             {{
                 new Date(cityWeatherData.data.currentTime).toLocaleDateString("en-us",
                   {
@@ -26,17 +26,17 @@
             )
           }}
         </p>
-        <p class="text-8xl mb-8">{{ Math.round(cityWeatherData.data.current.temp) }}&deg;</p>
-        <p>Feels like {{ Math.round(cityWeatherData.data.current.feels_like) }}&deg;</p>
-        <p class="capitalize">{{cityWeatherData.data.current.weather[0].description}}</p>
-        <img class="w-[150px] h-auto" :src="`http://openweathermap.org/img/wn/${cityWeatherData.data.current.weather[0].icon}@2x.png`" alt="Weather Img">
+        <p class="max-md:text-5xl md:text-8xl mb-8 tracking-wide">{{ Math.round(cityWeatherData.data.current.temp) }}&deg;</p>
+        <p class="max-md:text-sm md:text-base tracking-wider">Feels like {{ Math.round(cityWeatherData.data.current.feels_like) }}&deg;</p>
+        <p class="capitalize max-md:text-sm md:text-base tracking-wider">{{cityWeatherData.data.current.weather[0].description}}</p>
+        <img class="max-md:w-[135px] md:w-[150px] h-auto" :src="`http://openweathermap.org/img/wn/${cityWeatherData.data.current.weather[0].icon}@2x.png`" alt="Weather Img">
       </div>
     </div>
   <hr class="border-gray-400" />
   <!-- Hourly Weather -->
   <div v-if="cityWeatherData" class="w-full py-12">
     <div class="mx-8 text-white">
-      <h2 class="mb-7 text-lg font-bold">Hourly Weather</h2>
+      <h2 class="mb-7 max-md:text-base md:text-lg font-bold tracking-wide">Hourly Weather</h2>
       <div class="flex gap-20 overflow-x-scroll scrollbar-hide">
         <div v-for="cityHourData in cityWeatherData.data.hourly" class="flex flex-col gap-4 items-center">
           <p class="whitespace-nowrap text-md">{{
@@ -58,7 +58,7 @@
 <!--  Weekly weather-->
   <div v-if="cityWeatherData" class="w-full py-12">
     <div class="mx-8 text-white">
-      <h2 class="mb-4 text-lg font-bold">7 Day Forecast</h2>
+      <h2 class="mb-4 max-md:text-base md:text-lg font-bold tracking-wide">7 Day Forecast</h2>
       <div class="flex items-center" v-for="day in cityWeatherData.data.daily" :key="day.dt">
         <p class="flex-1">
           {{new Date(day.dt * 1000).toLocaleDateString("en-us", {
@@ -78,9 +78,9 @@
 
 <!--  Removing City-->
   <div v-if="cityWeatherData" class="flex justify-center py-12">
-    <div class="flex gap-2 text-white cursor-pointer duration-150 hover:text-red-500" @click="removeCity">
+    <div class="max-md:text-sm md:text-base flex gap-2 text-white cursor-pointer duration-150 hover:text-red-500" @click="removeCity">
       <i class="ri-delete-bin-line"></i>
-      <p>Remove City</p>
+      <p class="tracking-wide">Remove City</p>
     </div>
   </div>
 

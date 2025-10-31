@@ -1,17 +1,17 @@
 <template>
   <div class="sticky top-0 bg-weather-primary shadow-lg">
-    <nav class="px-[2rem] flex flex-col sm:flex-row items-center gap-4 text-white py-6 mx-auto">
+    <nav class="max-md:px-5 md:px-[2rem] flex items-center gap-4 text-white py-6 mx-auto">
 
       <RouterLink :to="{ name: 'home'}">
         <div class="flex items-center gap-3">
-          <i class="ri-sun-fill text-xl"></i>
-          <p class="text-xl">The Local Weather</p>
+          <i class="ri-sun-fill max-md:text-lg md:text-xl"></i>
+          <p class="max-md:text-base md:text-xl">The Local Weather</p>
         </div>
       </RouterLink>
 
       <div class="flex gap-3 flex-1 justify-end">
-        <i class="ri-information-fill text-xl hover:text-weather-secondary duration-150 cursor-pointer" @click="toogleModal"></i>
-        <i class="ri-add-line text-xl hover:text-weather-secondary duration-150 cursor-pointer" @click="addCity" v-if="route.query.preview"></i>
+        <i class="ri-information-fill max-md:text-lg md:text-xl hover:text-weather-secondary duration-150 cursor-pointer" @click="toogleModal"></i>
+        <i class="ri-add-line max-md:text-lg md:text-xl hover:text-weather-secondary duration-150 cursor-pointer" @click="addCity" v-if="route.query.preview"></i>
       </div>
     </nav>
   </div>
