@@ -39,7 +39,7 @@
       <h2 class="mb-7 max-md:text-base md:text-lg font-bold tracking-wide">Hourly Weather</h2>
       <div class="flex gap-20 overflow-x-scroll scrollbar-hide">
         <div v-for="cityHourData in cityWeatherData.data.hourly" class="flex flex-col gap-4 items-center">
-          <p class="whitespace-nowrap text-md">{{
+          <p class="whitespace-nowrap max-md:text-sm md:text-base tracking-wide">{{
             new Date(cityHourData.currentTime).toLocaleTimeString("en-us",
               {
                 hour: "numeric",
@@ -47,7 +47,7 @@
             )
             }}</p>
           <img :src="`http://openweathermap.org/img/wn/${cityHourData.weather[0].icon}@2x.png`" class="w-auto h-[50px] object-cover" alt="">
-          <p class="text-xl">{{ Math.round(cityHourData.temp) }}</p>
+          <p class="max-md:text-sm md:text-xl tracking-wide">{{ Math.round(cityHourData.temp) }}</p>
         </div>
       </div>
     </div>
